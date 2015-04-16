@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Entries</h1>
+
+<%= render :partial => 'index', :locals => {:entries => @entries} %>
+
+<br>
+
+<%= link_to 'New Entry', new_entry_path %>
