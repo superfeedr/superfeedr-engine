@@ -4,10 +4,6 @@ require_dependency "superfeedr_engine/application_controller"
 module SuperfeedrEngine
   class PubsubhubbubController < ApplicationController
 
-  	def index
-  		render :text => "Welcome!"
-  	end
-
   	def notify
   		signature = request.headers['HTTP_X_HUB_SIGNATURE']
   		if !signature

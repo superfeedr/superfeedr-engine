@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     superfeedr_engine (0.0.1)
-      rack-superfeedr (~> 0.4.2)
-      rails (~> 4.2.1)
+      rack-superfeedr (~> 0.4.3)
+      rails (~> 4.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -60,7 +60,7 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     rack (1.6.0)
-    rack-superfeedr (0.4.2)
+    rack-superfeedr (0.4.3)
       nokogiri (>= 1.6.1)
       rack
     rack-test (0.6.3)
@@ -106,6 +106,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rack-superfeedr (= 0.4.2)
   sqlite3
   superfeedr_engine!

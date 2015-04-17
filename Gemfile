@@ -14,4 +14,3 @@ gemspec
 # To use a debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'rack-superfeedr', '0.4.2'
