@@ -1,17 +1,20 @@
-= SuperfeedrEngine
+# SuperfeedrEngine
 
-This Rails engine let's you integrate Superfeedr[https://superfeedr.com] smoothly into any Rails 4+ application (not tested with Rails 3.X). It lets you consume RSS feeds in your Rails application using Superfeedr's PubSubHubbub[http://documentation.superfeedr.com/subscribers.html#webhooks] API.
+This Rails engine let's you integrate [Superfeedr](https://superfeedr.com) smoothly into any Rails 4+ application (not tested with Rails 3.X). It lets you consume RSS feeds in your Rails application using Superfeedr's [PubSubHubbub](http://documentation.superfeedr.com/subscribers.html#webhooks) API.
 
-The engine relies on the "Rack Superfeedr"[https://rubygems.org/gems/rack-superfeedr] library for subscriptions, unsubscriptions, retrieval and listing of subscriptions. It creates a route used for webhooks and yields notifications.
+The engine relies on the [Rack Superfeedr](https://rubygems.org/gems/rack-superfeedr) library for subscriptions, unsubscriptions, retrieval and listing of subscriptions. It creates a route used for webhooks and yields notifications.
 
 Gory details such as building webhook URLs, using secrets and handling signatures verifications are performed by default by this engine.
 
-== How-To
+## How-To
 
-1. In your Gemfile, add `gem 'superfeedr_engine'` and run `bundle update`.
+### Install
 
-2. Add a configuration file: `config/initailizers/superfeedr_engine.rb` with the following:
+In your Gemfile, add `gem 'superfeedr_engine'` and run `bundle update`.
 
+### Configure
+
+Add a configuration file: `config/initailizers/superfeedr_engine.rb` with the following:
 
 ```ruby
 SuperfeedrEngine::Engine.feed_class = "Feed" # Use the class you use for feeds. (Its name as a string)
@@ -34,11 +37,15 @@ SuperfeedrEngine::Engine.password = "8ac38a53cc32f71a6445e880f76fc865" # Token v
 SuperfeedrEngine::Engine.scheme = "http" # Can use HTTPS or a different port with SuperfeedrEngine::Engine.port
 ```
 
-3. Update routes in `config/routes.rb` to mount the Engine.
+### Mount
 
+Update routes in `config/routes.rb` to mount the Engine.
+
+```ruby
 mount SuperfeedrEngine::Engine => SuperfeedrEngine::Engine.base_path # Use the same to set path in the engine initialization!
+```
 
-4. Profit! (not really, you should start actually using the engine!)
+### Profit! (not really, you should start actually using the engine!)
 
 You can call perform the following calls:
 
