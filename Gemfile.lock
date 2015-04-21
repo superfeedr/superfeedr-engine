@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    superfeedr_engine (0.1.0)
+    superfeedr_engine (0.1.1)
       rack-superfeedr (~> 0.4.3)
       rails (~> 4.2.0)
 
