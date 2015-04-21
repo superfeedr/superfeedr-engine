@@ -41,7 +41,7 @@ module SuperfeedrEngine
         format: 'json' # Force the use of the JSON
       });
 
-      SuperfeedrEngine::Engine.retrieve_by_topic_url(object.url, opts)
+      SuperfeedrAPI.retrieve_by_topic_url(object.url, opts)
     end
 
     def self.unsubscribe(object, opts = {})
