@@ -1,4 +1,4 @@
-require 'digest/hmac'
+require 'openssl' 
 require_dependency "superfeedr_engine/application_controller"
 
 module SuperfeedrEngine
@@ -11,13 +11,14 @@ module SuperfeedrEngine
   		else
       	algo, hash = signature.split('=')
       	if algo != "sha1"
-      		Rails.logger.error("Unknown signature mechanism. Ignored paylod for #{params[:feed_id]}. Use retrieve if missing.")
+      		Rails.logger.error("Unknown signature mechanism #{algo}. Ignored paylod for #{params[:feed_id]}. Use retrieve if missing.")
       	else
       		feed = feed_klass.find(params[:feed_id])
       		if !feed
 	      		Rails.logger.error("Unknown notification for #{params[:feed_id]}.")
 	      	else
-      			computed = Digest::HMAC.hexdigest(request.raw_post, feed.secret, Digest::SHA1) 
+            digest  = OpenSSL::Digest.new(algo)
+            computed = OpenSSL::HMAC.hexdigest(digest, feed.secret, request.raw_post)
       			if computed == hash      				
       				feed.notified(params)
       			else

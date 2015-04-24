@@ -58,5 +58,24 @@ module SuperfeedrEngine
       super(opts)
     end
 
+    def self.search(query, opts = {})
+      opts.merge!({
+        format: 'json' # Force the use of the JSON
+      });
+
+      super(query, opts)
+    end
+
+    def self.replay(object, opts = {})
+      raise "Missing url method or property on #{object}" unless object.class.method_defined? :url 
+      raise "Missing id method or property on #{object}" unless object.class.method_defined? :id 
+
+      raise "#{object}#url needs to be a URL" unless valid?(object.url) 
+      raise "#{object}#id needs to not empty" if object.id.to_s.empty?
+
+      super(object.url, object.id, opts) 
+    end
+
+
   end
 end
