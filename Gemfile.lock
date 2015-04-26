@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    superfeedr_engine (0.1.3)
+    superfeedr_engine (0.1.4)
       rack-superfeedr (~> 0.4.4)
       rails (~> 4.2.0)
 
@@ -54,7 +54,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mime-types (2.4.3)
+    mime-types (2.5)
     mini_portile (0.6.2)
     minitest (5.6.0)
     nokogiri (1.6.6.2)
