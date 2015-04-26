@@ -57,6 +57,13 @@ body, ok = SuperfeedrEngine::Engine.retrieve(feed) # Will retrieve the past cont
 body, ok = SuperfeedrEngine::Engine.unsubscribe(feed) # Will stop receiving notifications when a feed changes.
 ```
 
+Finally, make sure your `SuperfeedrEngine::Engine.feed_class` has a `notified` method which will be called by the engine when new content is received by your application. You'll probably want to save the content of this notification. 
+
+The method can have 1 or 2 arguments. The first argument will be a Ruby hash with the content of the notification. The 2nd (optional) argument is the raw text notification.
+
+By default, this engine will subscribe to Superfeedr using the `JSON` format. Please check our [JSON schema](http://documentation.superfeedr.com/schema.html#json) for more details. 
+
+
 Please check our example Rails application, deployed on  and whose code can be found in `example`
 
 

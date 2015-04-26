@@ -21,6 +21,7 @@ module SuperfeedrEngine
             computed = OpenSSL::HMAC.hexdigest(digest, feed.secret, request.raw_post)
             if computed == hash
               params.delete("pubsubhubbub")
+              params.delete("feed_id")
               if !feed_klass.method_defined?(:notified)
                 Rails.logger.error("Please make sure your #{feed_klass} intances have a 'notified' method.")              
               elsif feed.method(:notified).arity == 2
