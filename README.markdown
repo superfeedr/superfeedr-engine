@@ -2,6 +2,8 @@
 
 This Rails engine let's you integrate [Superfeedr](https://superfeedr.com) smoothly into any Rails 4+ application (not tested with Rails 3.X). It lets you consume RSS feeds in your Rails application using Superfeedr's [PubSubHubbub](http://documentation.superfeedr.com/subscribers.html#webhooks) API.
 
+*Warning*: At this point, this engine is only to be used with [XML feeds subscriptions](http://documentation.superfeedr.com/subscribers.html#xml-based-feeds). 
+
 The engine relies on the [Rack Superfeedr](https://rubygems.org/gems/rack-superfeedr) library for subscriptions, unsubscriptions, retrieval and listing of subscriptions. It creates a route used for webhooks and yields notifications.
 
 Gory details such as building webhook URLs, using secrets and handling signatures verifications are performed by default by this engine.
