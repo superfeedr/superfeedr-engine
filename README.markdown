@@ -69,3 +69,17 @@ By default, this engine will subscribe to Superfeedr using the `JSON` format. Pl
 Please check our example Rails application, deployed on  and whose code can be found in `example`
 
 
+### Development note:
+
+When develiping your application you probably use localhost... which means that your Rails application is not reachable by our servers and we won't be able to send you notifications.
+
+To handle this, feel free to use any of these tools which expose your Rails application (on port 3000) to the web using temporary URLs:
+
+- [passageway](https://www.runscope.com/docs/passageway)
+- [forwardhq](https://forwardhq.com/)
+- [ngrok](https://ngrok.com/)
+
+
+
+
+
