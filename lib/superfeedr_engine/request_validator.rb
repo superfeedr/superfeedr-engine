@@ -16,7 +16,7 @@ class RequestValidator
 
     @algo, @hash = @signature.split('=')
     if @algo != "sha1"
-      @error = "Unknown signature mechanism #{algo}. Ignored paylod for #{@feed_id}. Use retrieve if missing.")
+      @error = "Unknown signature mechanism #{algo}. Ignored paylod for #{@feed_id}. Use retrieve if missing."
       return false
     end
 
