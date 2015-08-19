@@ -4,17 +4,19 @@ class RequestValidator
   attr_reader :error, :feed
 
   def initialize(request, params)
-    @signature = request.headers['HTTP_X_HUB_SIGNATURE']
+    @request = request
     @feed_id = params[:feed_id]
   end
 
   def valid?
-    if @signature.blank?
+    signature = @request.headers['HTTP_X_HUB_SIGNATURE']
+
+    if signature.blank?
       @error = "Missing signature. Ignored payload for #{@feed_id}. Use retrieve if missing."
       return false
     end
 
-    @algo, @hash = @signature.split('=')
+    @algo, @hash = signature.split('=')
     if @algo != "sha1"
       @error = "Unknown signature mechanism #{algo}. Ignored paylod for #{@feed_id}. Use retrieve if missing."
       return false
