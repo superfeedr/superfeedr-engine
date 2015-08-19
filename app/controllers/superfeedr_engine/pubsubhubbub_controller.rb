@@ -28,6 +28,7 @@ module SuperfeedrEngine
     def feed_params
       params.delete("pubsubhubbub")
       params.delete("feed_id")
+      params
     end
   end
 end
