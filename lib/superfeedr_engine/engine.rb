@@ -20,6 +20,7 @@ module SuperfeedrEngine
       raise "Missing url method or property on #{object}" unless object.class.method_defined? :url 
       raise "Missing id method or property on #{object}" unless object.class.method_defined? :id 
       raise "Missing secret method or property #{object}" unless object.class.method_defined? :id 
+      raise "Missing secret method or property #{object}" unless object.class.method_defined? :secret
 
       raise "#{object}#url needs to be a URL" unless valid?(object.url) 
       raise "#{object}#id needs to not empty" if object.id.to_s.empty?
