@@ -2,7 +2,7 @@
 
 This Rails engine let's you integrate [Superfeedr](https://superfeedr.com) smoothly into any Rails 4+ application (not tested with Rails 3.X). It lets you consume RSS feeds in your Rails application using Superfeedr's [PubSubHubbub](http://documentation.superfeedr.com/subscribers.html#webhooks) API.
 
-*Warning*: At this point, this engine is only to be used with [XML feeds subscriptions](http://documentation.superfeedr.com/subscribers.html#xml-based-feeds). 
+*Warning*: At this point, this engine is only to be used with [XML feeds subscriptions](http://documentation.superfeedr.com/subscribers.html#xml-based-feeds).
 
 The engine relies on the [Rack Superfeedr](https://rubygems.org/gems/rack-superfeedr) library for subscriptions, unsubscriptions, retrieval and listing of subscriptions. It creates a route used for webhooks and yields notifications.
 
@@ -27,8 +27,8 @@ SuperfeedrEngine::Engine.feed_class = "Feed" # Use the class you use for feeds. 
 
 SuperfeedrEngine::Engine.base_path = "/superfeedr_engine/" # Base path for the engine don't forget the trailing /
 
-SuperfeedrEngine::Engine.host = "5ea1e5ed83bf5555.a.passageway.io" # Your hostname (no http). Used for webhooks! 
-# When debugging, you can use tools like https://www.runscope.com/docs/passageway to 
+SuperfeedrEngine::Engine.host = "5ea1e5ed83bf5555.a.passageway.io" # Your hostname (no http). Used for webhooks!
+# When debugging, you can use tools like https://www.runscope.com/docs/passageway to
 # share your local web server with superfeedr's API via a public URL
 
 SuperfeedrEngine::Engine.login = "demo" # Superfeedr username
@@ -59,11 +59,11 @@ body, ok = SuperfeedrEngine::Engine.retrieve(feed) # Will retrieve the past cont
 body, ok = SuperfeedrEngine::Engine.unsubscribe(feed) # Will stop receiving notifications when a feed changes.
 ```
 
-Finally, make sure your `SuperfeedrEngine::Engine.feed_class` has a `notified` method which will be called by the engine when new content is received by your application. You'll probably want to save the content of this notification. 
+Finally, make sure your `SuperfeedrEngine::Engine.feed_class` has a `notified` method which will be called by the engine when new content is received by your application. You'll probably want to save the content of this notification.
 
-The method can have 1 or 2 arguments. The first argument will be a Ruby hash with the content of the notification. The 2nd (optional) argument is the raw text notification.
+The method can have 1, 2 or 3 arguments. The first argument will be a Ruby hash with the content of the notification. The 2nd (optional) argument is the raw text notification. The 3rd one (optional as well) will be the headers for the notifcation's HTTP request.
 
-By default, this engine will subscribe to Superfeedr using the `JSON` format. Please check our [JSON schema](http://documentation.superfeedr.com/schema.html#json) for more details. 
+By default, this engine will subscribe to Superfeedr using the `JSON` format. Please check our [JSON schema](http://documentation.superfeedr.com/schema.html#json) for more details.
 
 
 Please check our example Rails application, deployed on  and whose code can be found in `example`

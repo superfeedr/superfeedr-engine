@@ -1,4 +1,4 @@
-require 'openssl' 
+require 'openssl'
 require_dependency "superfeedr_engine/application_controller"
 
 module SuperfeedrEngine
@@ -23,11 +23,13 @@ module SuperfeedrEngine
               params.delete("pubsubhubbub")
               params.delete("feed_id")
               if !feed_klass.method_defined?(:notified)
-                Rails.logger.error("Please make sure your #{feed_klass} intances have a 'notified' method.")              
+                Rails.logger.error("Please make sure your #{feed_klass} intances have a 'notified' method.")
+              elsif feed.method(:notified).arity == 3
+                feed.notified(params, request.raw_post, request.headers)
               elsif feed.method(:notified).arity == 2
-                feed.notified(params, request.raw_post) 
+                feed.notified(params, request.raw_post)
               else
-                feed.notified(params) 
+                feed.notified(params)
               end
             else
               Rails.logger.error("Non matching signature. Ignored paylod for #{params[:feed_id]}. Use retrieve if missing.")
