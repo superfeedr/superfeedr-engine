@@ -25,7 +25,7 @@ module SuperfeedrEngine
               if !feed_klass.method_defined?(:notified)
                 Rails.logger.error("Please make sure your #{feed_klass} intances have a 'notified' method.")
               elsif feed.method(:notified).arity == 3
-                feed.notified(params, request.raw_post, request.headers)
+                feed.notified(params, request.raw_post, request)
               elsif feed.method(:notified).arity == 2
                 feed.notified(params, request.raw_post)
               else

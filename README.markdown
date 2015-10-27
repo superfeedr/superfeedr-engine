@@ -61,7 +61,7 @@ body, ok = SuperfeedrEngine::Engine.unsubscribe(feed) # Will stop receiving noti
 
 Finally, make sure your `SuperfeedrEngine::Engine.feed_class` has a `notified` method which will be called by the engine when new content is received by your application. You'll probably want to save the content of this notification.
 
-The method can have 1, 2 or 3 arguments. The first argument will be a Ruby hash with the content of the notification. The 2nd (optional) argument is the raw text notification. The 3rd one (optional as well) will be the headers for the notifcation's HTTP request.
+The method can have 1, 2 or 3 arguments. The first argument will be a Ruby hash with the content of the notification. The 2nd (optional) argument is the raw text notification. The 3rd one (optional as well) will be the request object for the notifcation.
 
 By default, this engine will subscribe to Superfeedr using the `JSON` format. Please check our [JSON schema](http://documentation.superfeedr.com/schema.html#json) for more details.
 
