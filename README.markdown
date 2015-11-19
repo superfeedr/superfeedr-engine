@@ -16,7 +16,7 @@ In your Gemfile, add `gem 'superfeedr_engine'` and run `bundle update`.
 
 ### Configure
 
-Add a configuration file: `config/initailizers/superfeedr_engine.rb` with the following:
+Add a configuration file: `config/initializers/superfeedr_engine.rb` with the following:
 
 ```ruby
 SuperfeedrEngine::Engine.feed_class = "Feed" # Use the class you use for feeds. (Its name as a string)
