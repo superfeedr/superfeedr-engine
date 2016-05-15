@@ -36,7 +36,7 @@ SuperfeedrEngine::Engine.login = "demo" # Superfeedr username
 SuperfeedrEngine::Engine.password = "8ac38a53cc32f71a6445e880f76fc865" # Token value
 # make sure it has the associated rights you need (subscribe,unsubscribe,retrieve,list)
 
-SuperfeedrEngine::Engine.scheme = "http" # Can use HTTPS or a different port with SuperfeedrEngine::Engine.port
+SuperfeedrEngine::Engine.scheme = "http" # Can use HTTPS or a different port with SuperfeedrEngine::Engine.port (Defaults to 80.  If you use https, set to 443 or, specify a custom port number if using different port.)
 ```
 
 ### Mount
